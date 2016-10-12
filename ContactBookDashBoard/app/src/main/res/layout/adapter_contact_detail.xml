@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="@dimen/contact_detail_card_width"
+        android:layout_height="@dimen/contact_detail_card_height"
+        android:layout_marginBottom="@dimen/card_margin"
+        android:layout_marginTop="@dimen/card_margin"
+        app:cardCornerRadius="@dimen/cardview_default_radius"
+        app:cardElevation="@dimen/card_elevation">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/contact_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image_height"
+                android:background="@color/image_background"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/contact_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size"
+                    android:layout_marginBottom="@dimen/text_margin_bottom"
+                    android:layout_marginStart="@dimen/text_margin_start" />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size"
+                    android:layout_below="@id/contact_name"
+                    android:layout_marginBottom="@dimen/text_margin_bottom"
+                    android:layout_marginStart="@dimen/text_margin_start" />
+
+                <TextView
+                    android:id="@+id/contact_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/email"
+                    android:layout_marginBottom="@dimen/text_margin_bottom"
+                    android:layout_marginStart="@dimen/text_margin_start"
+                    android:textSize="@dimen/text_size"/>
+
+                <TextView
+                    android:id="@+id/last_contact_time"
+                    android:layout_width="wrap_content"
+                    android:layout_below="@id/contact_number"
+                    android:textSize="@dimen/text_size"
+                    android:layout_marginStart="@dimen/text_margin_start"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>
