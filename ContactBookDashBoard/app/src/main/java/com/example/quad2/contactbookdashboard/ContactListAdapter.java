@@ -38,12 +38,8 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        if (contactList.get(position).getLastContacted() != null && !contactList.get(position).getLastContacted().equalsIgnoreCase("0")) {
-            String date = getDate(contactList.get(position).getLastContacted());
-            holder.lastContactTime.setText("Last Contacted : " + date);
-        } else {
-            holder.lastContactTime.setText("You have not contacted them!");
-        }
+
+        holder.dateOfBirth.setText("DOB : " + contactList.get(position).getDateOfBirth());
         holder.phoneNumber.setText(contactList.get(position).getPhoneNumber());
         holder.name.setText(contactList.get(position).getName());
         holder.email.setText(contactList.get(position).getEmail());
@@ -62,7 +58,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         ImageView contactImage;
         TextView name;
         TextView email;
-        TextView lastContactTime;
+        TextView dateOfBirth;
         TextView phoneNumber;
 
         public ViewHolder(View itemView) {
@@ -70,7 +66,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
             contactImage = (ImageView) itemView.findViewById(R.id.contact_image);
             email = (TextView) itemView.findViewById(R.id.email);
             name = (TextView) itemView.findViewById(R.id.contact_name);
-            lastContactTime = (TextView) itemView.findViewById(R.id.last_contact_time);
+            dateOfBirth = (TextView) itemView.findViewById(R.id.date_of_birth);
             phoneNumber = (TextView) itemView.findViewById(R.id.contact_number);
         }
     }

@@ -28,5 +28,6 @@ dependencies {
     compile 'com.android.support:cardview-v7:24.2.1'
     compile 'com.android.support:recyclerview-v7:24.2.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.tamir7.contacts:contacts:1.1.1'
     testCompile 'junit:junit:4.12'
 }

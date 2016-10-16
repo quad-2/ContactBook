@@ -11,10 +11,11 @@ public class Contact {
     private String phoneNumber;
     private String imageURI;
     private String contactId;
-    private String lastContacted;
+    private String dateOfBirth;
 
     public Contact() {
     }
+
 
     @Override
     public String toString() {
@@ -24,16 +25,16 @@ public class Contact {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", imageURI='" + imageURI + '\'' +
                 ", contactId='" + contactId + '\'' +
-                ", lastContacted='" + lastContacted + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
                 '}';
     }
 
-    public String getLastContacted() {
-        return lastContacted;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setLastContacted(String lastContacted) {
-        this.lastContacted = lastContacted;
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getPhoneNumber() {
