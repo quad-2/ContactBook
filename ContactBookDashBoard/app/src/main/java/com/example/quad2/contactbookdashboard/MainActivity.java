@@ -2,21 +2,22 @@ package com.example.quad2.contactbookdashboard;
 
 import android.Manifest;
 import android.app.ProgressDialog;
-import android.content.ContentResolver;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.github.tamir7.contacts.*;
+import com.github.tamir7.contacts.Contacts;
+import com.github.tamir7.contacts.Email;
+import com.github.tamir7.contacts.Query;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Contacts.initialize(MainActivity.this);
+
         showContacts();
     }
 
@@ -78,8 +80,9 @@ public class MainActivity extends AppCompatActivity {
                     contact.setName(contactData.getDisplayName());
 
                     if (contactData.getBirthday() != null) {
+                        String birthDate = convertDateFormat(contactData.getBirthday().getStartDate());
                         //Log.d("bday", contactData.getBirthday().getStartDate());
-                        contact.setDateOfBirth(contactData.getBirthday().getStartDate());
+                        contact.setDateOfBirth(birthDate);
                     } else
                         contact.setDateOfBirth("Not Available");
 
@@ -95,6 +98,20 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    private String convertDateFormat(String date) {
+        SimpleDateFormat oldFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat myFormat = new SimpleDateFormat("dd--MM--yyyy");
+        String newFormat = "";
+
+        try {
+
+            newFormat = myFormat.format(oldFormat.parse(date));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return newFormat;
     }
 
     class LoadAsynchronusly extends AsyncTask<Void, Void, Void> {
